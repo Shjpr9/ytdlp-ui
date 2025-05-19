@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>YouTube Downloader</h1>
+
+      <label for="url">YouTube URL:</label>
+      <input
+        type="text"
+        id="url"
+        placeholder="https://youtube.com/watch?v=..."
+      />
+
+      <div class="file-input-wrapper">
+        <label for="cookies">Cookies File (.jar):</label>
+        <div class="file-input-button" id="file-label">Select cookies file</div>
+        <input type="file" id="cookies" accept=".jar" />
+        <div class="file-name" id="file-name"></div>
+      </div>
+
+      <label for="proxy">Proxy (optional):</label>
+      <input
+        type="text"
+        id="proxy"
+        placeholder="http://username:password@host:port"
+      />
+
+      <label for="quality">Available Qualities:</label>
+      <select id="quality">
+        <option disabled selected>Load a video first</option>
+      </select>
+
+      <div class="button-group">
+        <button onclick="testBackend()">Test Connection</button>
+        <button onclick="fetchFormats()">List Formats</button>
+      </div>
+
+      <button id="download-btn" onclick="downloadVideo()">Download</button>
+      
+      <div id="status"></div>
+      
+      <label for="log">Download Log:</label>
+      <textarea
+        id="log"
+        rows="12"
+        readonly
+      ></textarea>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

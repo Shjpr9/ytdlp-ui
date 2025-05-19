@@ -1,0 +1,174 @@
+:root {
+  --primary: #8c52ff;
+  --primary-hover: #7a3aff;
+  --secondary: #2d3748;
+  --text: #e2e8f0;
+  --background: #1a202c;
+  --card-bg: #2d3748;
+  --input-bg: #4a5568;
+  --success: #48bb78;
+  --error: #f56565;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.container {
+  background: var(--card-bg);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: var(--input-bg);
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.2);
+}
+
+input::placeholder {
+  color: #a0aec0;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-top: 1.5rem;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#download-btn {
+  background: var(--success);
+  margin-top: 1rem;
+}
+
+#download-btn:hover {
+  background: #3da066;
+}
+
+#status {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-success {
+  background: rgba(72, 187, 120, 0.2);
+  color: #9ae6b4;
+}
+
+.status-error {
+  background: rgba(245, 101, 101, 0.2);
+  color: #feb2b2;
+}
+
+#log {
+  margin-top: 1rem;
+  background: #1a202c;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  padding: 1rem;
+  height: 200px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  resize: vertical;
+}
+
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-input-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-input-button {
+  display: block;
+  background: var(--secondary);
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px dashed #4a5568;
+}
+
+.file-name {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #a0aec0;
+}
