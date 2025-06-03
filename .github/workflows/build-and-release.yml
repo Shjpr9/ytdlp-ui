@@ -28,20 +28,13 @@ jobs:
         run: npm install -g pkg
 
       - name: Build EXE
-        run: pkg . --targets node18-win-x64 --output myapp.exe
+        run: pkg . --targets node18-win-x64 --output ytdl.exe
 
-      - name: Create Release
-        id: create_release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           name: "Auto Release - ${{ github.sha }}"
           tag_name: "release-${{ github.sha }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload EXE to Release
-        uses: softprops/action-gh-release@v2
-        with:
           files: ytdl.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
