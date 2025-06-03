@@ -1,5 +1,5 @@
 const baseUrl = "http://localhost:3000";
-const socket = io(baseUrl, { 
+const socket = io(baseUrl, {
     withCredentials: true,
     transports: ['websocket', 'polling']
 });
@@ -69,7 +69,7 @@ async function fetchFormats() {
 
     try {
         updateStatus("Fetching available formats...");
-        
+
         const formData = new FormData();
         formData.append("url", url);
         formData.append("proxy", proxy);
@@ -127,7 +127,7 @@ async function downloadVideo() {
 
     try {
         updateStatus("Starting download...");
-        
+
         const formData = new FormData();
         formData.append("url", url);
         formData.append("proxy", proxy);
@@ -145,9 +145,9 @@ async function downloadVideo() {
             throw new Error(errorText);
         }
 
-        const text = await res.text();
-        updateStatus(text);
-        
+        const data = await res.json();
+        updateStatus(data.status);
+
         // Clear log area before new download
         logArea.value = "🚀 Starting download...\n";
     } catch (error) {

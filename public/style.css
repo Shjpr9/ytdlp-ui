@@ -1,13 +1,14 @@
 :root {
-  --primary: #8c52ff;
-  --primary-hover: #7a3aff;
-  --secondary: #2d3748;
-  --text: #e2e8f0;
-  --background: #1a202c;
-  --card-bg: #2d3748;
-  --input-bg: #4a5568;
-  --success: #48bb78;
-  --error: #f56565;
+  --primary: #154360;
+  --primary-hover: #457b89;
+  --secondary: #134B70;
+  --text: #EEEEEE;
+  --background: #201E43;
+  --card-bg: #134B70;
+  --input-bg: #2a5d80;
+  --success: #5aad9b;
+  --error: #e05f5f;
+  --font: 'Inter', sans-serif;
 }
 
 * {
@@ -17,27 +18,36 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font);
   background: var(--background);
   color: var(--text);
   padding: 2rem;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .container {
-  background: var(--card-bg);
+  background: #0b202e;
   padding: 2rem;
   max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  color: var(--primary);
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -48,38 +58,42 @@ label {
   font-weight: 500;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  background: var(--input-bg);
-  border: 1px solid #4a5568;
+  background: #0d2c3f;
+  border: 1px solid #1a3e54;
   border-radius: 6px;
   color: var(--text);
   transition: all 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(80, 140, 155, 0.2);
 }
 
 input::placeholder {
-  color: #a0aec0;
+  color: #b8d0d8;
 }
 
 .button-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.5rem;
+  justify-content: space-between;
 }
 
 button {
-  display: block;
-  width: 100%;
+  flex: 1 1 48%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   background: var(--primary);
@@ -88,7 +102,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: background 0.2s, transform 0.2s;
   margin-top: 1.5rem;
 }
 
@@ -102,12 +116,13 @@ button:active {
 }
 
 #download-btn {
-  background: var(--success);
+  background: var(--primary);
   margin-top: 1rem;
+  width: 100%;
 }
 
 #download-btn:hover {
-  background: #3da066;
+  background: #4a9889;
 }
 
 #status {
@@ -119,19 +134,19 @@ button:active {
 }
 
 .status-success {
-  background: rgba(72, 187, 120, 0.2);
-  color: #9ae6b4;
+  background: rgba(90, 173, 155, 0.2);
+  color: #a8e6d9;
 }
 
 .status-error {
-  background: rgba(245, 101, 101, 0.2);
-  color: #feb2b2;
+  background: rgba(224, 95, 95, 0.2);
+  color: #ffb8b8;
 }
 
 #log {
   margin-top: 1rem;
-  background: #1a202c;
-  border: 1px solid #4a5568;
+  background: #071824;
+  border: 1px solid #1a3e54;
   border-radius: 6px;
   padding: 1rem;
   height: 200px;
@@ -143,11 +158,11 @@ button:active {
 .file-input-wrapper {
   position: relative;
   overflow: hidden;
-  display: inline-block;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
-.file-input-wrapper input[type=file] {
+.file-input-wrapper input[type="file"] {
   font-size: 100px;
   position: absolute;
   left: 0;
@@ -157,18 +172,32 @@ button:active {
 }
 
 .file-input-button {
-  display: block;
-  background: var(--secondary);
+  background: #0d2c3f;
   color: var(--text);
   padding: 0.75rem 1rem;
   border-radius: 6px;
   text-align: center;
   cursor: pointer;
-  border: 1px dashed #4a5568;
+  border: 1px dashed #1a3e54;
+  transition: background 0.2s;
+}
+
+.file-input-button:hover {
+  background: #12394e;
 }
 
 .file-name {
   margin-top: 0.5rem;
   font-size: 0.875rem;
-  color: #a0aec0;
+  color: #b8d0d8;
 }
+
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  button {
+    flex: 1 1 100%;
+  }
+} 

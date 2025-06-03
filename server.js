@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const multer = require("multer");
 const { execFile, spawn } = require("child_process");
 const path = require("path");
@@ -27,7 +26,7 @@ const storage = multer.diskStorage({
         cb(null, uniqueSuffix + path.extname(file.originalname));
     }
 });
-const upload = multer({ 
+const upload = multer({
     storage,
     limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
 });
@@ -37,7 +36,6 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -46,10 +44,6 @@ const io = new Server(server, {
 // Middleware
 app.use(express.json());
 app.use(express.static("public"));
-app.use(cors({ 
-    origin: ["http://127.0.0.1:5500", "http://localhost:5500"], 
-    credentials: true 
-}));
 
 // Error handler middleware
 app.use((err, req, res, next) => {
@@ -98,23 +92,34 @@ app.post("/api/download", upload.single("cookies"), (req, res) => {
             return res.status(400).json({ error: "Missing URL" });
         }
 
-        if (!format) {
-            return res.status(400).json({ error: "Missing format" });
-        }
-
         if (!cookiePath) {
             return res.status(400).json({ error: "Missing cookies file" });
         }
 
         const args = [
             url,
-            "-f", `${format}+bestaudio/best`,
             "--cookies", cookiePath,
             "--merge-output-format", "mp4",
             "--output", path.join(DOWNLOAD_DIR, "%(title)s.%(ext)s"),
+            "--embed-metadata",
+            "--continue",
+            "--no-overwrites",
             "--newline",
             "--no-playlist"
         ];
+        
+        // Only embed thumbnail for video formats, not audio-only formats
+        if (!format || !format.includes('audio')) {
+            args.push("--embed-thumbnail");
+        }
+
+        if (format) {
+            if (format == "best") {
+                args.push("-f", "bestvideo*+bestaudio/best");
+            } else {
+                args.push("-f", `${format}+bestaudio/best`);
+            }
+        }
 
         if (proxy) {
             args.push("--proxy", proxy);
@@ -202,7 +207,7 @@ function getVideoFormats(args, cookiePath) {
 // Socket.io connection handling
 io.on("connection", (socket) => {
     console.log("Client connected:", socket.id);
-    
+
     socket.on("disconnect", () => {
         console.log("Client disconnected:", socket.id);
     });
