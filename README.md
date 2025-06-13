@@ -51,10 +51,10 @@ This project streamlines media downloads while providing a seamless user experie
 
 This project requires the following dependencies:
 
-- **Programming Language:** JavaScript
-- **Package Manager:** [Npm](https://nodejs.org/en/download)
+- **Python 3.9+ (requried for yt-dlp):** [Download](https://www.python.org/downloads/)
+- **Package Manager:** [Npm](https://nodejs.org/en/download/)
 - **FFMPEG:** [Download](https://ffmpeg.org/download.html)
-- **YT-DLP:** [Download](https://github.com/yt-dlp/yt-dlp/releases/latest)
+- **YT-DLP:** [Download](https://github.com/yt-dlp/yt-dlp/releases/latest/)
 
 ### Installation
 
@@ -78,6 +78,19 @@ Build ytdlp-ui from the source and install dependencies:
 
    ```sh
    ❯ npm install
+   ```
+
+$. **Move the binary files:**
+
+   **FFMPEG and YT-dlp:**
+
+   make sure to move the downloaded required binaries to the project's folder!
+   the final structure should look something like this (for windows):
+   ```
+    -- server.js
+    -- yt-dlp.exe
+    -- ffmpeg.exe
+    ...
    ```
 
 ### Usage
