@@ -125,7 +125,7 @@ To download from youtube it is required to pass in your cookies. Here's how you 
 
 5. Choose the **"Netscape"** format from the dropdown.
 
-6. Click **"Copy to Clipboard"** or **"Download"** and save it to a `.jar` file.
+6. Save the copied cookies to a `.jar` file.
 
 7. Now use the file you created to download videos.
 
