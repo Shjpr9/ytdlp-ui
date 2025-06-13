@@ -1,13 +1,14 @@
 <div align="center">
 
-# YTDLP-UI  
-*Download Your Media, Effortlessly and Instantly*
+# YTDLP-UI
+
+_Download Your Media, Effortlessly and Instantly_
 
 ![last-commit](https://img.shields.io/github/last-commit/Shjpr9/ytdlp-ui?style=flat&logo=git&logoColor=white&color=0080ff)
 ![repo-top-language](https://img.shields.io/github/languages/top/Shjpr9/ytdlp-ui?style=flat&color=0080ff)
 ![repo-language-count](https://img.shields.io/github/languages/count/Shjpr9/ytdlp-ui?style=flat&color=0080ff)
 
-*Built with the tools and technologies:*  
+_Built with the tools and technologies:_  
 ![Express](https://img.shields.io/badge/Express-000000.svg?style=flat&logo=Express&logoColor=white)
 ![JSON](https://img.shields.io/badge/JSON-000000.svg?style=flat&logo=JSON&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white)
@@ -80,12 +81,13 @@ Build ytdlp-ui from the source and install dependencies:
    ❯ npm install
    ```
 
-$. **Move the binary files:**
+4. **Move the binary files:**
 
    **FFMPEG and YT-dlp:**
 
    make sure to move the downloaded required binaries to the project's folder!
    the final structure should look something like this (for windows):
+
    ```
     -- server.js
     -- yt-dlp.exe
