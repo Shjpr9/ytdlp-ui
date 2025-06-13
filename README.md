@@ -28,6 +28,7 @@ _Built with the tools and technologies:_
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Exporting YouTube Cookies](#exporting-youtube-cookies)
 
 ---
 
