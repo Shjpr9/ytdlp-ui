@@ -52,7 +52,7 @@ This project streamlines media downloads while providing a seamless user experie
 
 This project requires the following dependencies:
 
-- **Python 3.9+ (requried for yt-dlp):** [Download](https://www.python.org/downloads/)
+- **Python 3.9+ (required by yt-dlp):** [Download](https://www.python.org/downloads/)
 - **Package Manager:** [Npm](https://nodejs.org/en/download/)
 - **FFMPEG:** [Download](https://ffmpeg.org/download.html)
 - **YT-DLP:** [Download](https://github.com/yt-dlp/yt-dlp/releases/latest/)
