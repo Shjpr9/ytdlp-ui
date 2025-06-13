@@ -105,7 +105,30 @@ Run the project with:
 npm start
 ```
 
----
+### Exporting YouTube Cookies
+
+To download from youtube it is required to pass in your cookies. Here's how you can do it:
+
+#### Step-by-step:
+
+1. **Install Cookie-Editor Extension:**
+
+   - [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
+   - [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/)
+
+2. Open [YouTube.com](https://www.youtube.com) and log into your account.
+
+3. Click the **Cookie-Editor** extension icon in your browser toolbar.
+
+4. Navigate to the **"Export"** tab.
+
+5. Choose the **"Netscape"** format from the dropdown.
+
+6. Click **"Copy to Clipboard"** or **"Download"** and save it to a `.jar` file.
+
+7. Now use the file you created to download videos.
+
+> ⚠️ **Important:** The cookie file gives access to your YouTube account. Do **not** share it or store it insecurely.
 
 [⬆ Return](#top)
 
