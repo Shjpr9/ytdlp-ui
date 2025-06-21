@@ -8,6 +8,7 @@ const http = require("http");
 
 // Configuration
 const PORT = process.env.PORT || 3000;
+const SOCKET_TIMEOUT = process.env.SOCKET_TIMEOUT || 20;
 const DOWNLOAD_DIR = path.join(__dirname, "downloads");
 const UPLOAD_DIR = path.join(__dirname, "uploads");
 
@@ -73,6 +74,7 @@ app.post("/api/formats", upload.single("cookies"), async (req, res) => {
 
         if (proxy) {
             args.push("--proxy", proxy);
+            args.push("--socket-timeout", SOCKET_TIMEOUT);
         }
 
         const formats = await getVideoFormats(args, cookiePath);
@@ -123,6 +125,7 @@ app.post("/api/download", upload.single("cookies"), (req, res) => {
 
         if (proxy) {
             args.push("--proxy", proxy);
+            args.push("--socket-timeout", SOCKET_TIMEOUT);
         }
 
         const ytdlp = spawn("yt-dlp", args);
