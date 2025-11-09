@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:3000";
+const port = process.env.PORT;
+const baseUrl = "http://localhost:" + port;
 const socket = io(baseUrl, {
     withCredentials: true,
     transports: ['websocket', 'polling']
