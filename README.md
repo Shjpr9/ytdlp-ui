@@ -21,6 +21,10 @@ _Built with the tools and technologies:_
 
 ---
 
+<p align="center"><img src="https://github.com/Shjpr9/ytdlp-ui/blob/main/images/ss.png" width="500" height="600" /></p>
+
+---
+
 ## Table of Contents
 
 - [Overview](#overview)
